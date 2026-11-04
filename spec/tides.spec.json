@@ -37,6 +37,14 @@
       "required": false
     },
     {
+      "title": "Stop Time Predictions",
+      "name": "stop_time_predictions",
+      "description": "Predicted arrival and departure times by trip and stop for each service date, recorded each time a producer changes its prediction.",
+      "path": "stop_time_predictions.csv",
+      "schema": "stop_time_predictions.schema.json",
+      "required": false
+    },
+    {
       "title": "Trips Performed",
       "name": "trips_performed",
       "description": "Trips performed for each service date.",
