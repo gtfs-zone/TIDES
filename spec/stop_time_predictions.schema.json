@@ -51,7 +51,7 @@
     {
       "name": "prediction_timestamp",
       "type": "datetime",
-      "description": "Timestamp at which the prediction was made (for GTFS-realtime, TripUpdate.timestamp or else FeedHeader.timestamp). A row only appears when a predicted time changes, and it holds until the next row with the same service_date, trip_id_performed, trip_stop_sequence and producer.",
+      "description": "Timestamp at which the prediction was made (for GTFS-realtime, TripUpdate.timestamp or else FeedHeader.timestamp). A row only appears when a predicted time changes, and it holds until the next row with the same service_date, trip_id_performed, trip_stop_sequence and producer. A row with both predicted_arrival_time and predicted_departure_time empty withdraws the prediction: the producer stopped predicting the stop before it was visited, or the recording has a gap, and the previous row no longer holds.",
       "constraints": {
         "required": true
       }
@@ -77,12 +77,12 @@
     {
       "name": "predicted_arrival_time",
       "type": "datetime",
-      "description": "Predicted timestamp at which the vehicle arrives at the stop."
+      "description": "Predicted timestamp at which the vehicle arrives at the stop. Empty when the row withdraws the prediction (see prediction_timestamp)."
     },
     {
       "name": "predicted_departure_time",
       "type": "datetime",
-      "description": "Predicted timestamp at which the vehicle departs the stop."
+      "description": "Predicted timestamp at which the vehicle departs the stop. Empty when the row withdraws the prediction (see prediction_timestamp)."
     },
     {
       "name": "arrival_uncertainty",
