@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `stop_time_predictions` table: predicted arrival and departure times by trip and stop, one row per prediction change and producer
 - `stop_time_predictions` rows with empty predicted times withdraw the previous prediction for that stop
+- `stop_time_predictions.scheduled_stop_sequence`: GTFS stop sequence, to match predictions to stop visits from another source on `service_date`, `trip_id_scheduled` and `scheduled_stop_sequence`
 - gtfs.zone data packages add a `gtfs_zone` object to `datapackage.json`:
     - `coverage`: UTC intervals the source feeds were recorded, as a list of `{"start", "end"}` datetimes
     - `gtfs`: URL of the GTFS snapshot the package was built against
